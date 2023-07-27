@@ -1,6 +1,5 @@
 import React, { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
-import Box from "./Box";
 
 const Checkbox = forwardRef(function Checkbox(
   { id, label, className, ...rest },
@@ -11,7 +10,7 @@ const Checkbox = forwardRef(function Checkbox(
   };
 
   return (
-    <Box
+    <div
       className={twMerge("flex items-center", className)}
       onClick={handleClick}
     >
@@ -27,7 +26,7 @@ const Checkbox = forwardRef(function Checkbox(
           {label}
         </label>
       )}
-    </Box>
+    </div>
   );
 });
 

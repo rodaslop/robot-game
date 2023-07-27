@@ -1,4 +1,3 @@
-import Box from "@/components/Box";
 import { Button } from "@/components/Button";
 import Dialog from "@/components/Dialog";
 import TodoFields from "./TodoFields";
@@ -38,7 +37,7 @@ export default function MutateTodoDialog({ id, isOpen = false, onClose }) {
 
   return (
     <Dialog isOpen={isOpen} onClose={onClose} className="p-5">
-      <Box className="mb-7 font-semibold text-lg">Update todo</Box>
+      <div className="mb-7 font-semibold text-lg">Update todo</div>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <TodoFields
           loading={loading}
@@ -46,7 +45,7 @@ export default function MutateTodoDialog({ id, isOpen = false, onClose }) {
           register={register}
           errors={errors}
         />
-        <Box className="flex items-center justify-between mt-10">
+        <div className="flex items-center justify-between mt-10">
           <Button
             variant="none"
             className="text-red-600 bg-red-50 hover:bg-red-50/75"
@@ -54,15 +53,15 @@ export default function MutateTodoDialog({ id, isOpen = false, onClose }) {
           >
             Delete
           </Button>
-          <Box className="flex items-center justify-end">
+          <div className="flex items-center justify-end">
             <Button variant="btn-lightGray" onClick={onClose}>
               Cancel
             </Button>
             <Button type="submit" className="ml-2" diabled={isSubmitting}>
               Submit
             </Button>
-          </Box>
-        </Box>
+          </div>
+        </div>
       </Form>
     </Dialog>
   );

@@ -1,5 +1,5 @@
 import React from "react";
-import Box from "@/components/Box";
+
 import { Card } from "@/components/Card";
 import CheckboxControl from "./CheckboxControl";
 import { twMerge } from "tailwind-merge";
@@ -27,17 +27,17 @@ export default function Todo({
       bgColor="bg-white"
       onClick={onClick}
     >
-      <Box className="grid grid-cols-[5fr_2fr_1fr] gap-3">
-        <Box className="text-sm line-clamp-3 text-gray-800 leading-snug">
+      <div className="grid grid-cols-[5fr_2fr_1fr] gap-3">
+        <div className="text-sm line-clamp-3 text-gray-800 leading-snug">
           {description}
-        </Box>
-        <Box className="flex items-center justify-end">
+        </div>
+        <div className="flex items-center justify-end">
           <PriorityBadge>{priority}</PriorityBadge>
-        </Box>
-        <Box className="flex items-center justify-center">
+        </div>
+        <div className="flex items-center justify-center">
           <CheckboxControl id={id} isCompleted={isCompleted} />
-        </Box>
-      </Box>
+        </div>
+      </div>
     </Card>
   );
 }

@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import Box from "./Box";
+
 import { User } from "lucide-react";
 
 const REGEX = /\b(\w)/g;
@@ -19,12 +19,12 @@ const Avatar = forwardRef(function Avatar({ text }, ref) {
   };
 
   return (
-    <Box
+    <div
       ref={ref}
       className="relative inline-flex items-center justify-center w-10 h-10 overflow-hidden bg-blue-100 rounded-full cursor-pointer border border-blue-300"
     >
       <Content />
-    </Box>
+    </div>
   );
 });
 

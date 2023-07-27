@@ -1,7 +1,7 @@
 import { Fragment, forwardRef, useState } from "react";
 import { Listbox, Transition } from "@headlessui/react";
 import { Check, ChevronDown } from "lucide-react";
-import Box from "./Box";
+
 import { twMerge } from "tailwind-merge";
 
 const SelectButton = ({ children, className }) => {

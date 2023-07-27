@@ -1,5 +1,4 @@
 import { twMerge } from "tailwind-merge";
-import Box from "./Box";
 
 export const Button = ({
   variant = "btn-primary",
@@ -25,11 +24,11 @@ export const Button = ({
       {...rest}
     >
       {Icon && (
-        <Box className="flex-0 mr-1 -ml-1">
+        <div className="flex-0 mr-1 -ml-1">
           <Icon size={16} />
-        </Box>
+        </div>
       )}
-      <Box className="flex-1 justify-center text-center">{children}</Box>
+      <div className="flex-1 justify-center text-center">{children}</div>
     </button>
   );
 };

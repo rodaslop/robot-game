@@ -1,6 +1,6 @@
 import TextArea from "@/components/TextArea";
 import PrioritySelect from "./PrioritySelect";
-import Box from "@/components/Box";
+
 import Loading from "@/components/Loading";
 
 export default function TodoFields({
@@ -16,11 +16,11 @@ export default function TodoFields({
   // };
 
   return (
-    <Box>
+    <div>
       {loading ? (
-        <Box className="flex items-center justify-center min-h-[200px]">
+        <div className="flex items-center justify-center min-h-[200px]">
           <Loading />
-        </Box>
+        </div>
       ) : (
         <>
           <TextArea
@@ -36,6 +36,6 @@ export default function TodoFields({
           {/* <input type="file" onChange={handleChange} /> */}
         </>
       )}
-    </Box>
+    </div>
   );
 }

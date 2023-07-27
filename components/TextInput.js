@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import Box from "./Box";
+
 import { twMerge } from "tailwind-merge";
 import Label from "./Label";
 
@@ -8,7 +8,7 @@ const TextInput = forwardRef(function TextInput(
   ref
 ) {
   return (
-    <Box className={className}>
+    <div className={className}>
       {label && <Label htmlFor={id}>{label}</Label>}
       <input
         ref={ref}
@@ -24,7 +24,7 @@ const TextInput = forwardRef(function TextInput(
         placeholder={placeholder}
         {...rest}
       />
-    </Box>
+    </div>
   );
 });
 

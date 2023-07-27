@@ -1,7 +1,7 @@
 import React, { forwardRef } from "react";
 import Select from "@/components/Select";
 import { useController } from "react-hook-form";
-import Box from "@/components/Box";
+
 import Label from "@/components/Label";
 
 const PRIORITIES = ["low", "medium", "high"];
@@ -18,7 +18,7 @@ const PrioritySelect = forwardRef(function PrioritySelect(
   });
 
   return (
-    <Box className={className}>
+    <div className={className}>
       {label && <Label htmlFor="priority">{label}</Label>}
       <Select ref={ref} {...field}>
         <Select.Button className="capitalize">{field.value}</Select.Button>
@@ -34,7 +34,7 @@ const PrioritySelect = forwardRef(function PrioritySelect(
           ))}
         </Select.Options>
       </Select>
-    </Box>
+    </div>
   );
 });
 

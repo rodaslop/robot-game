@@ -1,5 +1,5 @@
 "use client";
-import Box from "@/components/Box";
+
 import { Button } from "@/components/Button";
 import { Archive, Plus } from "lucide-react";
 import React from "react";
@@ -33,8 +33,8 @@ export default function Page() {
   };
 
   return (
-    <Box>
-      <Box className="flex items-center justify-end mb-5">
+    <div>
+      <div className="flex items-center justify-end mb-5">
         <ArchiveTodosButton
           todos={completed}
           variant="btn-lightGray"
@@ -52,8 +52,8 @@ export default function Page() {
         >
           Todo
         </Button>
-      </Box>
-      <Box>
+      </div>
+      <div>
         <TodoList todos={notCompleted} onSelect={setSelected} />
         <Disclosure>
           {({ open }) => (
@@ -72,8 +72,8 @@ export default function Page() {
             </>
           )}
         </Disclosure>
-      </Box>
+      </div>
       <RenderedDialog id={id} isOpen={!!selected} onClose={onClose} />
-    </Box>
+    </div>
   );
 }

@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { fetcher } from "@/lib/fetcher";
+import { fetcher } from "@/utils/fetcher";
 import { useAuth } from "@/contexts/auth";
 
 export const useTodo = (id) => {

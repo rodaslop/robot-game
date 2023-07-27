@@ -1,6 +1,6 @@
 "use client";
 import { useAuth } from "@/contexts/auth";
-import { fetcher, create, update } from "@/lib/fetcher";
+import { fetcher, create, update } from "@/utils/fetcher";
 import useSWR from "swr";
 
 export const useAccount = () => {

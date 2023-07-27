@@ -1,7 +1,4 @@
 import "./globals.css";
-import Navbar from "./Navbar";
-import Box from "@/components/Box";
-import Providers from "./Providers";
 
 export const metadata = {
   title: "Todo app",
@@ -12,10 +9,10 @@ export default function Layout({ children }) {
   return (
     <html lang="en">
       <body className="bg-neutral-50">
-        <Providers>
-          <Navbar />
-          <Box className="pt-20">{children}</Box>
-        </Providers>
+        <div className="p-10">
+          <h1 className="text-4xl font-medium text-center mb-10">Robot Game</h1>
+          <div className="flex flex-col items-center">{children}</div>
+        </div>
       </body>
     </html>
   );

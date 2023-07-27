@@ -1,4 +1,3 @@
-import Box from "@/components/Box";
 import { Button } from "@/components/Button";
 import Dialog from "@/components/Dialog";
 import TodoFields from "./TodoFields";
@@ -25,17 +24,17 @@ export default function InsertTodoDialog({ isOpen = false, onClose }) {
 
   return (
     <Dialog isOpen={isOpen} onClose={onClose} className="p-5">
-      <Box className="mb-7 font-semibold text-lg">Create todo</Box>
+      <div className="mb-7 font-semibold text-lg">Create todo</div>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <TodoFields control={control} register={register} errors={errors} />
-        <Box className="flex items-center justify-end mt-10">
+        <div className="flex items-center justify-end mt-10">
           <Button variant="btn-lightGray" onClick={onClose}>
             Cancel
           </Button>
           <Button type="submit" className="ml-2" disabled={isSubmitting}>
             Submit
           </Button>
-        </Box>
+        </div>
       </Form>
     </Dialog>
   );

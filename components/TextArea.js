@@ -1,5 +1,5 @@
 import React, { forwardRef } from "react";
-import Box from "./Box";
+
 import { twMerge } from "tailwind-merge";
 import Label from "./Label";
 
@@ -18,7 +18,7 @@ const TextArea = forwardRef(function TextArea(
   ref
 ) {
   return (
-    <Box className={className}>
+    <div className={className}>
       {label && <Label htmlFor={id}>{label}</Label>}
       <textarea
         ref={ref}
@@ -36,7 +36,7 @@ const TextArea = forwardRef(function TextArea(
         required={required}
         {...rest}
       />
-    </Box>
+    </div>
   );
 });
 

@@ -1,8 +1,7 @@
 import { twMerge } from "tailwind-merge";
-import Box from "./Box";
 
 export const Alert = ({ variant = "default", className, ...rest }) => (
-  <Box
+  <div
     className={twMerge(
       "p-4 text-sm cursor-pointer",
       variant === "default" && "text-blue-800 rounded-lg bg-blue-50",

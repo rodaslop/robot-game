@@ -1,4 +1,4 @@
-import { create, update, remove, fetcher } from "@/lib/fetcher";
+import { create, update, remove, fetcher } from "@/utils/fetcher";
 import useSWR from "swr";
 import { useAuth } from "@/contexts/auth";
 import _ from "lodash";

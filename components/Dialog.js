@@ -1,5 +1,5 @@
 import { Dialog as HUI_Dialog } from "@headlessui/react";
-import Box from "@/components/Box";
+
 import { twMerge } from "tailwind-merge";
 
 export default function Dialog({
@@ -11,8 +11,8 @@ export default function Dialog({
 }) {
   return (
     <HUI_Dialog open={isOpen} onClose={onClose}>
-      <Box className="fixed inset-0 bg-black opacity-30 z-[99]" />
-      <Box className="fixed inset-0 flex items-center justify-center p-4 z-[100]">
+      <div className="fixed inset-0 bg-black opacity-30 z-[99]" />
+      <div className="fixed inset-0 flex items-center justify-center p-4 z-[100]">
         <HUI_Dialog.Panel
           className={twMerge(
             `mx-auto rounded-lg bg-white w-[100vw] max-w-[400px]`,
@@ -21,7 +21,7 @@ export default function Dialog({
         >
           {children}
         </HUI_Dialog.Panel>
-      </Box>
+      </div>
     </HUI_Dialog>
   );
 }
