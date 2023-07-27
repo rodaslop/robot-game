@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
-export default function ItemRenderer({ square, item, children }) {
-  if (square.row !== item.row || square.column !== item.column) {
+export default function ItemRenderer({ coordinates, item, children }) {
+  if (coordinates.row !== item.row || coordinates.column !== item.column) {
     return null;
   }
 
@@ -9,7 +9,7 @@ export default function ItemRenderer({ square, item, children }) {
 }
 
 ItemRenderer.propTypes = {
-  square: PropTypes.shape({
+  coordinates: PropTypes.shape({
     row: PropTypes.number.isRequired,
     column: PropTypes.number.isRequired,
   }).isRequired,

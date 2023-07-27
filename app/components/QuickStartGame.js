@@ -12,7 +12,7 @@ export default function QuickStartGame() {
       {(coordinates) => (
         <GameBoardSquare>
           <ItemRenderer
-            square={coordinates}
+            coordinates={coordinates}
             item={{
               row: robot.row,
               column: robot.column,
