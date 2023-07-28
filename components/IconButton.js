@@ -1,7 +1,7 @@
 import { twMerge } from "tailwind-merge";
 
 export default function IconButton({
-  variant = "btn-primary",
+  variant = "btn-secondary",
   size,
   className,
   icon: Icon,
