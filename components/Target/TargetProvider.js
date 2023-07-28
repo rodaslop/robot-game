@@ -2,20 +2,21 @@
 
 import React from "react";
 import { useGame } from "../GameProvider";
+import { getSpawnLocation } from "@/utils/target";
 
 const TargetContext = React.createContext();
 
 export const useTarget = () => React.useContext(TargetContext);
-
-const random = (num) => Math.floor(Math.random() * num + 1);
 
 function reducer(state, action) {
   switch (action.type) {
     case "respawn":
       return {
         ...state,
-        row: random(action.payload.rows - 1),
-        column: random(action.payload.columns - 1),
+        ...getSpawnLocation({
+          bounds: action.payload.bounds,
+          exclude: action.payload.exclude,
+        }),
       };
     default:
       return state;
@@ -32,15 +33,18 @@ export const TargetProvider = ({ children }) => {
 
   const [state, dispatch] = React.useReducer(reducer, DEFAULT_VALUE);
 
-  const respawn = React.useCallback(() => {
-    dispatch({
-      type: "respawn",
-      payload: {
-        rows,
-        columns,
-      },
-    });
-  }, [rows, columns]);
+  const respawn = React.useCallback(
+    (exclude) => {
+      dispatch({
+        type: "respawn",
+        payload: {
+          bounds: { rows, columns },
+          exclude,
+        },
+      });
+    },
+    [rows, columns]
+  );
 
   const value = React.useMemo(
     () => ({

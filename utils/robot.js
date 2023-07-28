@@ -57,3 +57,18 @@ export const moveForward = ({ row, column, direction }) => {
       };
   }
 };
+
+export function isOutOfBounds({
+  bounds: { rows, columns },
+  robot: { row, column },
+}) {
+  if (row >= rows || row < 0) {
+    return true;
+  }
+
+  if (column >= columns || column < 0) {
+    return true;
+  }
+
+  return false;
+}

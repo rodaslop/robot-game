@@ -8,9 +8,10 @@ import { Robot, RobotControls, useRobot } from "@/components/Robot";
 import { Target, useTarget } from "@/components/Target";
 import useTimer from "@/hooks/useTimer";
 import { Button } from "@/components/Button";
+import { isOutOfBounds } from "@/utils/robot";
 
 export default function QuickStartGame() {
-  const timer = useTimer(10);
+  const timer = useTimer(60);
   const game = useGame();
   const robot = useRobot();
   const target = useTarget();
@@ -20,24 +21,33 @@ export default function QuickStartGame() {
 
   React.useEffect(() => {
     if (targetAquired) {
-      target.respawn();
+      target.respawn(robot);
       game.incrementScore();
     }
-  }, [targetAquired, target, game]);
+  }, [targetAquired, target, game, robot]);
 
   const handleReset = React.useCallback(() => {
+    timer.toggleStart();
     game.reset();
     timer.reset();
     robot.reset();
-    target.respawn();
+    target.respawn(robot);
   }, [game, timer, robot, target]);
 
   React.useEffect(() => {
     if (timer.time === 0) {
-      timer.toggleStart();
       handleReset();
     }
   }, [timer, handleReset]);
+
+  React.useEffect(() => {
+    if (isOutOfBounds({ bounds: game, robot })) {
+      handleReset();
+    }
+  }, [game, robot, handleReset]);
+
+  const inProgress = timer.time > 0 && timer.time < 60;
+  const isPaused = !timer.isRunning && inProgress;
 
   return (
     <div className="flex flex-col gap-10">
@@ -56,7 +66,12 @@ export default function QuickStartGame() {
       </GameBoard>
       <RobotControls disabled={!timer.isRunning} />
       <div className="flex justify-center">
-        <Button onClick={timer.toggleStart}>Start Game</Button>
+        <Button
+          variant={inProgress && !isPaused ? "btn-secondary" : "btn-primary"}
+          onClick={timer.toggleStart}
+        >
+          {!inProgress ? "Start Game" : isPaused ? "Resume" : "Pause"}
+        </Button>
       </div>
     </div>
   );
