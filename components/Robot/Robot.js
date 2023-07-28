@@ -3,6 +3,7 @@
 import PropTypes from "prop-types";
 import { useRobot } from "./RobotProvider";
 import { twMerge } from "tailwind-merge";
+import { Bot } from "lucide-react";
 
 export default function Robot({ squareLocation }) {
   const { row, column, direction } = useRobot();
@@ -21,7 +22,7 @@ export default function Robot({ squareLocation }) {
         direction === "left" && "-rotate-90"
       )}
     >
-      Robot
+      <Bot />
     </div>
   );
 }

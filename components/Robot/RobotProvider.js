@@ -7,6 +7,12 @@ const RobotContext = React.createContext();
 
 export const useRobot = () => React.useContext(RobotContext);
 
+const DEFAULT_VALUE = {
+  row: 2,
+  column: 2,
+  direction: "up",
+};
+
 function reducer(state, action) {
   switch (action.type) {
     case "rotate.left":
@@ -24,16 +30,12 @@ function reducer(state, action) {
         ...state,
         ...moveForward(state),
       };
+    case "reset":
+      return DEFAULT_VALUE;
     default:
       return state;
   }
 }
-
-const DEFAULT_VALUE = {
-  row: 2,
-  column: 2,
-  direction: "up",
-};
 
 export const RobotProvider = ({ children }) => {
   const [state, dispatch] = React.useReducer(reducer, DEFAULT_VALUE);
@@ -50,14 +52,19 @@ export const RobotProvider = ({ children }) => {
     dispatch({ type: "move" });
   }, []);
 
+  const reset = React.useCallback(() => {
+    dispatch({ type: "reset" });
+  }, []);
+
   const value = React.useMemo(
     () => ({
       ...state,
       rotateLeft,
       rotateRight,
       move,
+      reset,
     }),
-    [state, rotateLeft, rotateRight, move]
+    [state, rotateLeft, rotateRight, move, reset]
   );
 
   return (

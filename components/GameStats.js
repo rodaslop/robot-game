@@ -1,10 +1,6 @@
-"use client";
+import PropTypes from "prop-types";
 
-import { useGame } from "./GameProvider";
-
-export default function GameStats() {
-  const { score = 0, time = 60 } = useGame();
-
+export default function GameStats({ time = 0, score = 0 }) {
   return (
     <div className="flex items-center justify-between">
       <div className="font-semibold">Score: {score}</div>
@@ -12,3 +8,8 @@ export default function GameStats() {
     </div>
   );
 }
+
+GameStats.propTypes = {
+  time: PropTypes.number,
+  score: PropTypes.number,
+};

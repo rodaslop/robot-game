@@ -4,7 +4,7 @@
 
 @layer base {
   .btn {
-    @apply py-2 px-4 rounded transition active:scale-95 h-[36px] min-w-[64px];
+    @apply py-2 px-4 rounded transition active:scale-95 h-[36px] min-w-[64px] text-center;
   }
 
   .btn-primary {
@@ -21,13 +21,5 @@
 
   .btn-secondary:hover {
     @apply bg-blue-600 text-white;
-  }
-
-  .btn-lightGray {
-    @apply bg-neutral-200 text-gray-600;
-  }
-
-  .btn-lightGray:hover {
-    @apply opacity-75 text-gray-600;
   }
 }

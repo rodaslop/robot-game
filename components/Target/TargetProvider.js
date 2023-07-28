@@ -50,8 +50,6 @@ export const TargetProvider = ({ children }) => {
     [state, respawn]
   );
 
-  console.log("target", state);
-
   return (
     <TargetContext.Provider value={value}>{children}</TargetContext.Provider>
   );
