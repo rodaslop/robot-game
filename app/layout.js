@@ -1,8 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Todo app",
-  description: "Todo list app.",
+  title: "Robot Game",
 };
 
 export default function Layout({ children }) {
